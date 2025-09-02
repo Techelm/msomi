@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="login-container">
-    <h2><i class="fas fa-user-circle"></i> Login</h2>
+    <h2><i class="fas fa-user-circle"></i> regester</h2>
     <form class="login-form" method="POST">
       <div class="input-group">
         <i class="fas fa-user"></i>
@@ -21,7 +21,7 @@
         <i class="fas fa-lock"></i>
         <input type="password" placeholder="Password" name="password" required>
       </div>
-      <button class="login-btn" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+      <button class="login-btn" type="submit"><i class="fas fa-sign-in-alt"></i> Regester</button>
       {% for message in get_flashed_messages()%}
       <p>{{message}}</p>
       {% endfor %}
