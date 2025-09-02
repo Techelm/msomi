@@ -13,6 +13,31 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
+    is_admin = db.Column(db.Boolean, default=False)
+
+
+class Darshboard(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    year = db.Column(db.String(10), nullable=False)
+    program = db.Column(db.String(100), nullable=True)
+    active = db.Column(db.Boolean, default=True)
+
+class Event(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.String(20), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+
+class Resource(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    link = db.Column(db.String(200), nullable=False)
+
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sender = db.Column(db.String(80), nullable=False)
+    content = db.Column(db.Text, nullable=False)
 
 @app.route('/')
 def home():
@@ -26,23 +51,36 @@ def login():
         user = User.query.filter_by(username=username, password=password).first()
         if user:
             session['username'] = user.username
-            flash('Login successful!', 'success')
-            return redirect(url_for('dashboard'))
+            if user == User.query.filter_by(is_admin = True).first():
+                session['is_admin'] = True
+                return redirect(url_for('admin_dashboard', username = session.get('username')))
+            else:
+                #session['username'] = user.username
+                flash('Login successful!', 'success')
+                return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html')
+
+@app.route('/admin')
+def admin_dashboard():
+    if session["is_admin"] != True:
+        return redirect(url_for('login'))
+    return render_template('adminportal.html', username = session.get('username'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+        admin = request.form.get('admin')
+        is_admin = admin == 'admin'
         if not username or not password:
             flash('Please fill out all fields.', 'danger')
         elif User.query.filter_by(username=username).first():
             flash('Username already exists', 'danger')
         else:
-            new_user = User(username=username, password=password)
+            new_user = User(username=username, password=password, is_admin=is_admin)
             db.session.add(new_user)
             db.session.commit()
             flash('Registration successful! Please login.', 'success')
