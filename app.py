@@ -1,9 +1,9 @@
+
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'this a sample secrete key '
+app.config['SECRET_KEY'] = 'your_secret_key_here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -21,8 +21,8 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username')
+        password = request.form.get('password')
         user = User.query.filter_by(username=username, password=password).first()
         if user:
             session['username'] = user.username
@@ -35,9 +35,11 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        if User.query.filter_by(username=username).first():
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if not username or not password:
+            flash('Please fill out all fields.', 'danger')
+        elif User.query.filter_by(username=username).first():
             flash('Username already exists', 'danger')
         else:
             new_user = User(username=username, password=password)
@@ -60,4 +62,6 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
