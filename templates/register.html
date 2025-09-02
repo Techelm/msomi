@@ -21,6 +21,10 @@
         <i class="fas fa-lock"></i>
         <input type="password" placeholder="Password" name="password" required>
       </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="checkbox" value="admin" name="admin" required>
+      </div>
       <button class="login-btn" type="submit"><i class="fas fa-sign-in-alt"></i> Regester</button>
       {% for message in get_flashed_messages()%}
       <p>{{message}}</p>
