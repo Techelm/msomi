@@ -12,16 +12,19 @@
 <body>
   <div class="login-container">
     <h2><i class="fas fa-user-circle"></i> Login</h2>
-    <form class="login-form" action="studentportal.html">
+    <form class="login-form" method="POST">
       <div class="input-group">
         <i class="fas fa-user"></i>
-        <input type="text" placeholder="Username" required>
+        <input type="text" placeholder="Username" name="name" required>
       </div>
       <div class="input-group">
         <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Password" name="password" required>
       </div>
       <button class="login-btn" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+      {% for message in get_flashed_messages()%}
+      <p>{{message}}</p>
+      {% endfor %}
     </form>
     <div class="footer">&copy; 2025 MUST Medical Imaging Society</div>
   </div>
