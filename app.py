@@ -14,10 +14,6 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 @app.route('/')
 def home():
     return render_template('index.html')
