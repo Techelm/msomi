@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - MUST Medical Imaging Society</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Removed commented internal style block for clarity and to ensure only external CSS is used -->
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2><i class="fas fa-user-shield"></i> Admin Panel</h2>
+    <nav>
+      <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="#"><i class="fas fa-users"></i> Manage Members</a>
+      <a href="#"><i class="fas fa-calendar-alt"></i> Manage Events</a>
+      <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+      <a href="#"><i class="fas fa-folder-open"></i> Resources</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <input type="text" placeholder="Search..." style="padding:0.5rem 1rem; border-radius:8px; border:1px solid #ccc;">
+        <span class="admin-badge"><i class="fas fa-user-circle"></i> Evance</span>
+        <a href="#" style="color:#ffd700;"><i class="fas fa-bell"></i></a>
+      </div>
+    </header>
+
+    <!-- Dashboard Overview -->
+    <section class="card-grid" style="margin-bottom:2rem;">
+      <div class="card">
+        <h3><i class="fas fa-users"></i> Total Members</h3>
+        <p>120 Active Members</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
+        <p>3 scheduled this month</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-envelope"></i> Messages</h3>
+        <p>5 new messages</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-folder-open"></i> Resources</h3>
+        <p>42 files uploaded</p>
+      </div>
+    </section>
+
+    <!-- Members Management -->
+    <section>
+      <h2><i class="fas fa-users"></i> Manage Members</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>3rd Year</td>
+            <td><span style="color:green;font-weight:bold;"><i class="fas fa-check-circle"></i> Active</span></td>
+            <td>
+              <a href="#" class="btn"><i class="fas fa-edit"></i> Edit</a>
+              <a href="#" class="btn"><i class="fas fa-trash"></i> Remove</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>2nd Year</td>
+            <td><span style="color:orange;font-weight:bold;"><i class="fas fa-hourglass-half"></i> Pending</span></td>
+            <td>
+              <a href="#" class="btn"><i class="fas fa-check"></i> Approve</a>
+              <a href="#" class="btn"><i class="fas fa-trash"></i> Remove</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Events Management -->
+    <section>
+      <h2><i class="fas fa-calendar-alt"></i> Manage Events</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Registrations</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MRI Workshop</td>
+            <td>10 Sep 2025</td>
+            <td>45</td>
+            <td>
+              <a href="#" class="btn"><i class="fas fa-edit"></i> Edit</a>
+              <a href="#" class="btn"><i class="fas fa-ban"></i> Cancel</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Radiology Careers Talk</td>
+            <td>20 Sep 2025</td>
+            <td>30</td>
+            <td>
+              <a href="#" class="btn"><i class="fas fa-edit"></i> Edit</a>
+              <a href="#" class="btn"><i class="fas fa-ban"></i> Cancel</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>

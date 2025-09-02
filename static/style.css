@@ -1,0 +1,252 @@
+/* ====== GLOBAL RESETS & BASE ====== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+	background: #f5f7fa;
+	color: #222;
+	min-height: 100vh;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+/* ====== SIDEBAR ====== */
+.sidebar {
+	width: 250px;
+	background: linear-gradient(135deg, #0f2027 60%, #203a43 100%);
+	color: #fff;
+	position: fixed;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	z-index: 100;
+	box-shadow: 2px 0 12px rgba(0,0,0,0.07);
+	transition: width 0.3s;
+}
+.sidebar h2 {
+	text-align: center;
+	color: #ffd700;
+	font-size: 1.5rem;
+	padding: 2rem 0 1rem 0;
+	border-bottom: 1px solid #222;
+	letter-spacing: 1px;
+}
+.sidebar nav {
+	margin-top: 2rem;
+	flex: 1;
+}
+.sidebar nav a {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 2rem;
+	color: #fff;
+	font-size: 1.08rem;
+	border-left: 4px solid transparent;
+	transition: 0.3s;
+}
+.sidebar nav a:hover, .sidebar nav a.active {
+	background: #1a1a1a;
+	color: #ffd700;
+	border-left: 4px solid #ffd700;
+	padding-left: 2.5rem;
+}
+
+/* ====== MAIN CONTENT & HEADER ====== */
+.main-content {
+	margin-left: 250px;
+	padding: 2rem;
+	min-height: 100vh;
+	transition: margin 0.3s;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2rem;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+header h1 {
+	color: #0f2027;
+	font-size: 2rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+}
+.admin-badge {
+	background: #ffd700;
+	color: #0f2027;
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 1rem;
+}
+header input[type="text"] {
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	font-size: 1rem;
+	outline: none;
+	transition: border 0.2s;
+}
+header input[type="text"]:focus {
+	border: 1.5px solid #ffd700;
+}
+
+/* ====== DASHBOARD CARDS ====== */
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 2rem;
+}
+.card {
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+	padding: 1.5rem;
+	text-align: left;
+	transition: 0.3s;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.card h3 {
+	margin-bottom: 0.5rem;
+	color: #0f2027;
+	font-size: 1.2rem;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.card p {
+	color: #555;
+	font-size: 1rem;
+}
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ====== TABLES ====== */
+table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #fff;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+	margin-bottom: 2rem;
+}
+table th, table td {
+	padding: 1rem 1.2rem;
+	border-bottom: 1px solid #eee;
+	text-align: left;
+	font-size: 1rem;
+}
+table th {
+	background: #0f2027;
+	color: #ffd700;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
+table tr:last-child td {
+	border-bottom: none;
+}
+table tr:hover td {
+	background: #f7f7fa;
+}
+
+/* ====== BUTTONS ====== */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	padding: 0.5rem 1rem;
+	background: #0f2027;
+	color: #ffd700;
+	border-radius: 6px;
+	text-decoration: none;
+	font-size: 0.98rem;
+	font-weight: 500;
+	border: none;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+}
+.btn:hover {
+	background: #ffd700;
+	color: #0f2027;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 1100px) {
+	.main-content {
+		padding: 1rem;
+	}
+	.card-grid {
+		gap: 1rem;
+	}
+}
+@media (max-width: 900px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+		flex-direction: row;
+		box-shadow: none;
+		border-bottom: 1px solid #eee;
+		z-index: 10;
+	}
+	.main-content {
+		margin-left: 0;
+		padding: 1rem;
+	}
+	.card-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	header {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 1rem;
+	}
+}
+@media (max-width: 600px) {
+	.sidebar {
+		display: none;
+	}
+	.main-content {
+		margin-left: 0;
+		padding: 0.5rem;
+	}
+	.card-grid {
+		grid-template-columns: 1fr;
+		gap: 0.7rem;
+	}
+	header h1 {
+		font-size: 1.2rem;
+	}
+	.admin-badge {
+		font-size: 0.9rem;
+		padding: 0.3rem 0.7rem;
+	}
+	table th, table td {
+		padding: 0.6rem 0.5rem;
+		font-size: 0.95rem;
+	}
+	.btn {
+		padding: 0.4rem 0.7rem;
+		font-size: 0.95rem;
+	}
+}

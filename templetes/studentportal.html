@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - MUST Medical Imaging Society</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2><i class="fas fa-user-graduate"></i> Student Portal</h2>
+    <nav>
+      <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="#"><i class="fas fa-user"></i> Profile</a>
+      <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+      <a href="#"><i class="fas fa-folder-open"></i> Resources</a>
+      <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+      <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+      <div class="admin-badge"><i class="fas fa-user-circle"></i> Maybe Thosi</div>
+    </header>
+
+    <!-- Dashboard Cards -->
+    <section class="card-grid" style="margin-bottom:2rem;">
+      <div class="card">
+        <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
+        <p>Next Event: MRI Workshop on 10th September 2025</p>
+        <p>RSVP status: <span style="color:green;font-weight:bold;"><i class="fas fa-check-circle"></i> Confirmed</span></p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-id-card"></i> Membership Info</h3>
+        <p>Year: 3rd Year</p>
+        <p>Program: Medical Imaging</p>
+        <p>Status: <span style="color:green;font-weight:bold;"><i class="fas fa-user-check"></i> Active Member</span></p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-envelope"></i> Messages</h3>
+        <p>You have <span style="color:#ffd700;font-weight:bold;">2</span> new messages from society admin.</p>
+      </div>
+    </section>
+
+    <!-- Events Table -->
+    <h2><i class="fas fa-calendar-alt"></i> All Upcoming Events</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><i class="fas fa-flask"></i> Workshop: MRI Techniques</td>
+          <td>10 Sep 2025</td>
+          <td><span style="color:green;font-weight:bold;"><i class="fas fa-check-circle"></i> Registered</span></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-chalkboard-teacher"></i> Guest Lecture: Radiology Careers</td>
+          <td>20 Sep 2025</td>
+          <td><span style="color:orange;font-weight:bold;"><i class="fas fa-hourglass-half"></i> Pending</span></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-users"></i> Annual Society Meet</td>
+          <td>05 Oct 2025</td>
+          <td><span style="color:#888;font-weight:bold;"><i class="fas fa-times-circle"></i> Not Registered</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>

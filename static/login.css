@@ -1,0 +1,79 @@
+/* Login Page Styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027 60%, #203a43 100%);
+}
+.login-container {
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-container h2 {
+  color: #0f2027;
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f5f7fa;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+}
+.input-group i {
+  color: #0f2027;
+  margin-right: 0.7rem;
+  font-size: 1.1rem;
+}
+.input-group input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  width: 100%;
+  color: #222;
+}
+.login-btn {
+  background: #0f2027;
+  color: #ffd700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.login-btn:hover {
+  background: #203a43;
+  color: #fff;
+}
+.login-container .footer {
+  margin-top: 1.5rem;
+  color: #888;
+  font-size: 0.95rem;
+}
+@media (max-width: 500px) {
+  .login-container {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+}
